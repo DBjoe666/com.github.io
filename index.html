@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人网站</title>
+  <style>
+    /* 全局样式 */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 主页头部样式 */
+    header {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+
+    /* 分栏样式 */
+    section {
+      padding: 20px;
+    }
+
+    /* 兴趣爱好页面样式 */
+    #hobbies {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    #hobbies div {
+      width: 300px;
+      margin-bottom: 20px;
+    }
+
+    #hobbies img {
+      width: 100%;
+      height: auto;
+    }
+
+    /* 计算机网络课表页面样式 */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid #ccc;
+    }
+
+    /* 调查表页面样式 */
+    form {
+      width: 400px;
+      margin: 0 auto;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    input[type="submit"] {
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* JavaScript演示页面样式 */
+    #js-demo {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 主页头部 -->
+  <header>
+    <img src="mypicture" alt="头像">
+    <h1>你的个人身份</h1>
+  </header>
+
+  <!-- 分栏内容 -->
+  <section id="hobbies">
+    <h2>兴趣爱好</h2>
+    <div>
+      <img src="hobby1.jpg" alt="阅读">
+      <p>这是我的爱好1</p>
+    </div>
+    <div>
+      <img src="hobby2.jpg" alt="散步">
+      <p>这是我的爱好2</p>
+    </div>
+  </section>
+
+  <section id="schedule">
+    <h2>计算机网络课表</h2>
+    <table>
+      <tr>
+        <th>时间</th>
+        <th>星期一</th>
+        <th>星期二</th>
+        <th>星期三</th>
+        <th>星期四</th>
+        <th>星期五</th>
+      </tr>
+      <tr>
+        <td>8:00 - 9:40</td>
+        <td>计算机网络</td>
+        <td>数学</td>
+        <td>英语</td>
+        <td>计算机网络</td>
+        <td>物理</td>
+      </tr>
+      <tr>
+        <td>10:00 - 11:40</td>
+        <td>数据结构</td>
+        <td>计算机网络</td>
+        <td>计算机网络</td>
+        <td>数据库</td>
+        <td>操作系统</td>
+      </tr>
+    </table>
+  </section>
+
+  <section id="survey">
+    <h2>调查表</h2>
+    <form>
+      <label for="job1">
+        <input type="radio" id="job1" name="job" value="程序员">程序员
+      </label>
+      <label for="job2">
+        <input type="radio" id="job2" name="job" value="设计师">设计师
+      </label>
+      <label for="job3">
+        <input type="radio" id="job3" name="job" value="教师">教师
+      </label>
+      <input type="submit" value="提交">
+    </form>
+  </section>
+
+  <section id="js-demo">
+    <h2>JavaScript演示</h2>
+    <button onclick="showDialog()">弹出对话框</button>
+    <button onclick="changeBackgroundColor()">改变屏幕背景色</button>
+    <button onclick="showCurrentTime()">显示当前时间</button>
+    <p id="time"></p>
+  </section>
+
+  <script>
+    function showDialog() {
+      alert("这是一个对话框！");
+    }
+
+    function changeBackgroundColor() {
+      document.body.style.backgroundColor = getRandomColor();
+    }
+
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    function showCurrentTime() {
+      const now = new Date();
+      const time = now.toLocaleTimeString();
+      document.getElementById('time').innerHTML = `当前时间：${time}`;
+    }
+  </script>
+</body>
+
+</html>
